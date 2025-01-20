@@ -138,7 +138,7 @@ local header = {
     },
     opts = {
         position = "center",
-        hl = "Type",
+        hl = "AlphaHeader",
         -- wrap = "overflow";
     },
 }
@@ -150,7 +150,7 @@ local section_mru = {
             type = "text",
             val = "Recent files",
             opts = {
-                hl = "SpecialComment",
+                hl = "AlphaGroupTitle",
                 shrink_margin = false,
                 position = "center",
             },
@@ -169,7 +169,7 @@ local section_mru = {
 local buttons = {
     type = "group",
     val = {
-        { type = "text", val = "Quick links", opts = { hl = "SpecialComment", position = "center" } },
+        { type = "text", val = "Quick links", opts = { hl = "AlphaGroupTitle", position = "center" } },
         { type = "padding", val = 1 },
         dashboard.button("e", "  New file", "<cmd>ene<CR>"),
         dashboard.button("SPC f f", "󰈞  Find file"),
