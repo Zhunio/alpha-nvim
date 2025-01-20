@@ -50,7 +50,7 @@ local function button(sc, txt, keybind, keybind_opts)
         position = "center",
         shortcut = sc,
         cursor = 3,
-        width = 50,
+        width = 75,
         align_shortcut = "right",
         hl = 'AlphaButton',
         hl_shortcut = "AlphaButtonShortcut",
