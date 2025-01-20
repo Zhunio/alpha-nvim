@@ -70,6 +70,7 @@ end
 local default_mru_ignore = { "gitcommit" }
 
 local mru_opts = {
+    target_width = 60,
     ignore = function(path, ext)
         return (string.find(path, "COMMIT_EDITMSG")) or (vim.tbl_contains(default_mru_ignore, ext))
     end,
@@ -99,7 +100,6 @@ local function mru(start, cwd, items_number, opts)
             oldfiles[#oldfiles + 1] = v
         end
     end
-    local target_width = 35
 
     local tbl = {}
     for i, fn in ipairs(oldfiles) do
@@ -110,9 +110,9 @@ local function mru(start, cwd, items_number, opts)
             short_fn = vim.fn.fnamemodify(fn, ":~")
         end
 
-        if #short_fn > target_width then
+        if #short_fn > opts.target_width then
             short_fn = plenary_path.new(short_fn):shorten(1, { -2, -1 })
-            if #short_fn > target_width then
+            if #short_fn > opts.target_width then
                 short_fn = plenary_path.new(short_fn):shorten(1, { -1 })
             end
         end
