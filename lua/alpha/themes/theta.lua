@@ -181,13 +181,17 @@ local buttons = {
     position = "center",
 }
 
+local header_padding = { type = "padding", val = 2 }
+local section_mru_padding = { type = "padding", val = 2 }
+local buttons_padding = { type = "padding", val = 2 }
+
 local config = {
     layout = {
-        { type = "padding", val = 2 },
+        header_padding,
         header,
-        { type = "padding", val = 2 },
+        section_mru_padding,
         section_mru,
-        { type = "padding", val = 2 },
+        buttons_padding,
         buttons,
     },
     opts = {
@@ -207,7 +211,11 @@ local config = {
 
 return {
     header = header,
+    header_padding = header_padding,
     buttons = buttons,
+    buttons_padding,
+    section_mru = section_mru,
+    section_mru_padding = section_mru_padding,
     mru = mru,
     config = config,
     -- theme specific config
