@@ -20,7 +20,10 @@ local file_icons = {
 
 local function icon(fn)
     if file_icons.provider ~= "devicons" and file_icons.provider ~= "mini" then
-        vim.notify("Alpha: Invalid file icons provider: " .. file_icons.provider .. ", disable file icons", vim.log.levels.WARN)
+        vim.notify(
+            "Alpha: Invalid file icons provider: " .. file_icons.provider .. ", disable file icons",
+            vim.log.levels.WARN
+        )
         file_icons.enabled = false
         return "", ""
     end
@@ -129,16 +132,19 @@ end
 local header = {
     type = "text",
     val = {
-        [[                                  __]],
-        [[     ___     ___    ___   __  __ /\_\    ___ ___]],
-        [[    / _ `\  / __`\ / __`\/\ \/\ \\/\ \  / __` __`\]],
-        [[   /\ \/\ \/\  __//\ \_\ \ \ \_/ |\ \ \/\ \/\ \/\ \]],
-        [[   \ \_\ \_\ \____\ \____/\ \___/  \ \_\ \_\ \_\ \_\]],
-        [[    \/_/\/_/\/____/\/___/  \/__/    \/_/\/_/\/_/\/_/]],
+        [[                                                                     ]],
+        [[       ████ ██████           █████      ██                     ]],
+        [[      ███████████             █████                             ]],
+        [[      █████████ ███████████████████ ███   ███████████   ]],
+        [[     █████████  ███    █████████████ █████ ██████████████   ]],
+        [[    █████████ ██████████ █████████ █████ █████ ████ █████   ]],
+        [[  ███████████ ███    ███ █████████ █████ █████ ████ █████  ]],
+        [[ ██████  █████████████████████ ████ █████ █████ ████ ██████ ]],
+        [[                                                                       ]],
     },
     opts = {
         position = "center",
-        hl = "Type",
+        hl = "AlphaHeader",
         -- wrap = "overflow";
     },
 }
@@ -193,12 +199,12 @@ local config = {
     opts = {
         margin = 5,
         setup = function()
-            vim.api.nvim_create_autocmd('DirChanged', {
-                pattern = '*',
+            vim.api.nvim_create_autocmd("DirChanged", {
+                pattern = "*",
                 group = "alpha_temp",
-                callback = function ()
-                    require('alpha').redraw()
-                    vim.cmd('AlphaRemap')
+                callback = function()
+                    require("alpha").redraw()
+                    vim.cmd("AlphaRemap")
                 end,
             })
         end,
