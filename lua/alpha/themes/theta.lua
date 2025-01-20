@@ -213,7 +213,7 @@ return {
     header = header,
     header_padding = header_padding,
     buttons = buttons,
-    buttons_padding,
+    buttons_padding = buttons_padding,
     section_mru = section_mru,
     section_mru_padding = section_mru_padding,
     mru = mru,
